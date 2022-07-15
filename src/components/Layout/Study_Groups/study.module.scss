@@ -1,0 +1,20 @@
+.wrapper {
+    width: 420px;
+    height: 120px;
+    background-color: #f4f7f9;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    margin-left: 32px;
+    color: #b1bbc0;
+    font-weight: 600;
+}
+
+.amount {
+    margin-left: 32px;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.3);
+}

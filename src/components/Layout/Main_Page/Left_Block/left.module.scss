@@ -1,0 +1,37 @@
+.wrapper {
+    color: #000;
+    max-width: var(--left-block-width);
+    margin-right: 64px; //kc voi khoi giua
+}
+
+.title {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #7e5037;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    input {
+        outline: none;
+        width: 20px;
+        height: 18px;
+        border: none;
+        background-color: aliceblue;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    p {
+        margin-left: 16px;
+    }
+}
+.checkbox {
+}

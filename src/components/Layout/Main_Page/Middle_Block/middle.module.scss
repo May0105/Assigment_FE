@@ -1,0 +1,139 @@
+.wrapper {
+    width: calc(100% - var(--left-block-width));
+    height: 100%;
+    border-radius: 3px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #ccc;
+    // border-bottom: 1px solid #ccc;
+    line-height: 62px;
+    min-height: 62px;
+    max-height: 62px;
+    padding: 10px 0;
+
+    input {
+        min-height: 46px;
+        max-height: 46px;
+        max-width: 20px;
+        min-width: 20px;
+        margin-right: 40px;
+    }
+
+    .header-name,
+    .header-place,
+    .header-sex,
+    .header-groups {
+        padding: 0 12px;
+        font-weight: 500;
+    }
+
+    .header-name {
+        max-width: 180px;
+        min-width: 180px;
+        margin-left: 50px;
+    }
+
+    .header-sex {
+        max-width: 100px;
+        min-width: 100px;
+    }
+
+    .header-place {
+        min-width: 240px;
+        max-width: 240px;
+    }
+
+    .header-groups {
+        margin-left: 40px;
+        min-width: 160px;
+        max-width: 160px;
+    }
+}
+
+.info {
+    display: flex;
+    max-height: 56px;
+    width: fit-content;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    line-height: 56px;
+    input {
+        min-height: 46px;
+        max-height: 46px;
+        max-width: 20px;
+        min-width: 20px;
+        cursor: pointer;
+    }
+
+    // input[type='checkbox'] {
+    //     background-color: orange;
+    //     -webkit-appearance: checkbox;
+    //     box-sizing: border-box;
+    //     padding: initial;
+    //     border: initial;
+    // }
+
+    .image {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left: 30px;
+    }
+
+    .name {
+        min-width: 180px;
+        max-width: 180px;
+        font-weight: 600;
+        color: #7e5037;
+    }
+
+    .sex {
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    .place-date {
+        min-width: 280px;
+        max-width: 280px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .groups {
+        min-width: 140px;
+        max-width: 140px;
+    }
+}
+
+.info {
+    .input-avt {
+        display: flex;
+        align-items: center;
+        max-width: 120px;
+        min-width: 120px;
+    }
+}
+
+.name,
+.sex,
+.place-date,
+.groups {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 6px 8px;
+}
+
+.place-date {
+}
+.groups p {
+}

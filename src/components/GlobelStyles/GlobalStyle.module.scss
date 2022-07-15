@@ -1,0 +1,34 @@
+@import 'normalize.css';
+
+:root {
+    --text-color: #d8dce0;
+    --primary-color: #ed7b3d;
+    --blue-color: #34cae0;
+
+    // defaultLayout
+    --main-page-width: 1200px;
+    --main-page-height: 600px;
+    --left-block-width: 320px;
+
+    --black: #000;
+    --white: #fff;
+}
+//rgba(22, 24, 35, 0.12);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed; //tối ưu để hiển thị nhanh nhất
+    color: var(--black);
+    background-color: #e8ecef;
+}

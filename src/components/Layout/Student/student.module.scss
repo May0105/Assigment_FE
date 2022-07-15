@@ -1,0 +1,20 @@
+.wrapper {
+    width: 420px;
+    height: 120px;
+    background-color: var(--white);
+    margin-right: 12px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    margin-left: 32px;
+    font-weight: 600;
+    color: var(--blue-color);
+}
+.amount {
+    margin-left: 32px;
+    font-size: 1.3rem;
+}
