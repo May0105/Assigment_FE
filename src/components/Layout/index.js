@@ -22,9 +22,6 @@ function Layout() {
                 <StudyGroups />
             </div>
 
-            {/* <div className="study">
-            </div> */}
-
             <div className="main-page">
                 <MainPage />
             </div>

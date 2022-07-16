@@ -13,7 +13,7 @@
     --black: #000;
     --white: #fff;
 }
-//rgba(22, 24, 35, 0.12);
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,7 +28,7 @@ body {
     font-family: ProximaNova, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
-    text-rendering: optimizeSpeed; //tối ưu để hiển thị nhanh nhất
+    text-rendering: optimizeSpeed;
     color: var(--black);
     background-color: #e8ecef;
 }

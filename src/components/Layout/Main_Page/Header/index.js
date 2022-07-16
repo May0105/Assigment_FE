@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
@@ -9,7 +9,13 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 const cx = classNames.bind(styles);
 
-function Header() {
+function Header({ handlePageClick, totalPages }) {
+    const [page, setPage] = useState(1);
+
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+        handlePageClick(newPage);
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('search')}>
@@ -36,14 +42,31 @@ function Header() {
                 </div>
             </div>
             <div className={cx('page')}>
-                {/* <div className={cx('number-page', 'active')}>1</div> */}
-                <button className={cx('arrow-btn')}>
-                    <KeyboardDoubleArrowLeftIcon className={cx('arrow-icon')} />
+                <button
+                    className={cx('arrow-btn')}
+                    disabled={page <= 1}
+                    onClick={() => handlePageChange(page - 1)}
+                >
+                    <KeyboardDoubleArrowLeftIcon
+                        className={
+                            page <= 1
+                                ? cx('arrow-icon', 'disable')
+                                : cx('arrow-icon')
+                        }
+                    />
                 </button>
-                <div className={cx('number-page')}>1</div>
-                <button className={cx('arrow-btn')}>
+                <div className={cx('number-page')}>{page}</div>
+                <button
+                    className={cx('arrow-btn')}
+                    disabled={page >= totalPages}
+                    onClick={() => handlePageChange(page + 1)}
+                >
                     <KeyboardDoubleArrowRightIcon
-                        className={cx('arrow-icon')}
+                        className={
+                            page >= totalPages
+                                ? cx('arrow-icon', 'disable')
+                                : cx('arrow-icon')
+                        }
                     />
                 </button>
             </div>

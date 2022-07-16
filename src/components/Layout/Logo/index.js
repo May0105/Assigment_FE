@@ -13,7 +13,7 @@ function Logo() {
                 <p className={cx('text')}>Student Administration Framework</p>
             </div>
             <div className={cx('account')}>
-                <img src={Avata} className={cx('image')} />
+                <img src={Avata} alt="avatar" className={cx('image')} />
                 <p>Admin</p>
             </div>
         </div>
