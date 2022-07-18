@@ -11,36 +11,43 @@ import Minions2 from '../../../assests/images/minion2.jpg';
 import Minions3 from '../../../assests/images/minion3png.png';
 const cx = classNames.bind(styles);
 function MainPage() {
-    const [data, setData] = useState('');
-    const [currentItems, setCurrentItems] = useState(null);
-    const [pageCount, setPageCount] = useState(0);
+    const [data, setData] = useState(''); //du lieu
+    const [currentItems, setCurrentItems] = useState(null); //obj: Khi được set -> chứa số phần tử itemsPerPage tren 1 page
+    const [pageCount, setPageCount] = useState(0); //tong so trang
     const [itemOffset, setItemOffset] = useState(0); //index in array
-    // const [currentData, setCurrentData] = useState();
+
     let itemsPerPage = 5; //so item tren 1 page
 
+    //1. call Api
     useEffect(() => {
         const getData = async () => {
             const res = await axios.get(
                 'http://assignment-tuneofcode-backend.herokuapp.com/api/v1/users/students',
             );
             const items = res.data.data;
+            console.log('items:', items);
             setData(items);
         };
         getData();
     }, []);
 
+    //3.
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
 
-        setCurrentItems(data.slice(itemOffset, endOffset)); //item trong 1 page
-        setPageCount(Math.ceil(data.length / itemsPerPage));
-    }, [data, itemOffset, itemsPerPage]);
+        setCurrentItems(data.slice(itemOffset, endOffset)); //slice: cat cac ptu theo chi so
+        setPageCount(Math.ceil(data.length / itemsPerPage)); //tinh ra tong so trang co the co
+    }, [data, itemOffset, itemsPerPage]); //khi data - hay index - so tiem tren 1 page thay doi
 
+    //4. truyen cho header; Khi click ->doi so page;
     const handlePageClick = (page) => {
         const newOffset = ((page - 1) * itemsPerPage) % data.length;
+        /*chia -> lay ra index moi cho itemOffset*/
         setItemOffset(newOffset);
+        //set lai cac ptu tren 1 page khi chi so index thay doi
     };
 
+    //2. Cần xử li mảng groups rồi mớI truyen du lieu cho Middle
     if (data) {
         data[0].avatar = Minions1;
         data[1].avatar = Minions2;
@@ -51,14 +58,16 @@ function MainPage() {
                 for (let i = 0; i < element.groups.length - 1; i++) {
                     groupString += element.groups[i].name + ', ';
                 }
-                groupString += element.groups[element.groups.length - 1].name;
+                groupString += element.groups[element.groups.length - 1].name; //add them ptu cuoi cua group
             }
-            element.groupString = groupString;
+            element.groupString = groupString; //add them groupString vao obj
         });
     } else return null;
+
     return (
         <div className={cx('wrapper')}>
             <Header totalPages={pageCount} handlePageClick={handlePageClick} />
+            {/* <Header totalPages={pageCount} /> */}
 
             <div className={cx('block')}>
                 <LeftBlock className={cx('left-block')} />
