@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import styles from './main_page.module.scss';
 import LeftBlock from './Left_Block';
 import MiddleBlock from './Middle_Block';
@@ -13,43 +12,33 @@ import Data from '../../../mocks/data';
 const cx = classNames.bind(styles);
 
 function MainPage() {
-    const [data, setData] = useState(''); //du lieu
-    const [currentItems, setCurrentItems] = useState(null); //obj: chứa số phần tử itemsPerPage tren 1 page
-    const [pageCount, setPageCount] = useState(0); //tong so trang
-    const [itemOffset, setItemOffset] = useState(0); //index of array
+    const [data, setData] = useState('');
+    const [currentItems, setCurrentItems] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
 
-    let itemsPerPage = 5; //so item tren 1 page
+    let itemsPerPage = 5;
 
-    //1. call Api
     useEffect(() => {
         const getData = async () => {
-            //     const res = await axios.get(
-            //         'http://assignment-tuneofcode-backend.herokuapp.com/api/v1/users/students',
-            //     );
-            //     const items = res.data.data;
-            //     console.log('items:', items);
             setData(Data);
         };
         getData();
     }, []);
 
-    //3. ceil
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
 
-        setCurrentItems(data.slice(itemOffset, endOffset)); //slice: cat cac ptu theo chi so
-        setPageCount(Math.ceil(data.length / itemsPerPage)); //tinh ra tong so trang co the co
-    }, [data, itemOffset, itemsPerPage]); //khi data - hay index - so tiem tren 1 page thay doi
+        setCurrentItems(data.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(data.length / itemsPerPage));
+    }, [data, itemOffset, itemsPerPage]);
 
-    //4. truyen cho header; Khi click ->doi so page;
     const handlePageClick = (page) => {
-        const newOffset = ((page - 1) * itemsPerPage) % data.length; //length = 50
-        /*chia -> lay ra index moi cho itemOffset*/
+        const newOffset = ((page - 1) * itemsPerPage) % data.length;
+
         setItemOffset(newOffset);
-        //set lai cac ptu tren 1 page khi chi so index thay doi
     };
 
-    //2. Cần xử li mảng groups rồi mớI truyen du lieu cho Middle
     if (data) {
         data[0].avatar = Minions1;
         data[1].avatar = Minions2;
@@ -60,9 +49,9 @@ function MainPage() {
                 for (let i = 0; i < element.groups.length - 1; i++) {
                     groupString += element.groups[i] + ', ';
                 }
-                groupString += element.groups[element.groups.length - 1]; //.name; //add them ptu cuoi cua group
+                groupString += element.groups[element.groups.length - 1];
             }
-            element.groupString = groupString; //add them groupString vao obj
+            element.groupString = groupString;
         });
     } else return null;
 

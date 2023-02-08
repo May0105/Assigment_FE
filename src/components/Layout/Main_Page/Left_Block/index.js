@@ -13,7 +13,6 @@ function LeftBlock() {
             </div>
             <div className={cx('box')}>
                 <input type="checkbox" id="squaredcheck" />
-                {/* <label ></label> */}
                 <p>Biologists</p>
             </div>
             <div className={cx('box')}>
@@ -23,7 +22,7 @@ function LeftBlock() {
             <div className={cx('box')}>
                 <input type="checkbox" />
                 <p>Black magicians</p>
-            </div> 
+            </div>
         </div>
     );
 }
