@@ -1,6 +1,5 @@
 .wrapper {
     width: var(--main-page-width);
-
     background-color: var(--white);
     overflow: hidden;
     padding: 0 30px 50px 30px;
@@ -9,7 +8,31 @@
 .block {
     display: flex;
     margin-top: 30px;
+    .left-block {
+        max-width: var(--left-block-width);
+    }
+
+    .middle-block {
+        width: calc(100% - var(--left-block-width));
+    }
 }
 
 .middle-block {
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+    }
+    .block {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+}
+
+//  and (max-width: 1200px)
+
+@media (min-width: 1201px) {
 }

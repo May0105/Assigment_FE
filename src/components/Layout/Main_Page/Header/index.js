@@ -15,7 +15,7 @@ import useDebounced from '../../../hooks/useDebounce';
 const cx = classNames.bind(styles);
 
 function Header({ handlePageClick, totalPages }) {
-    //nhan tu cha {yotalPages}
+    //nhan tu cha {totalPages}
     const [page, setPage] = useState(1);
 
     const handlePageChange = (newPage) => {
@@ -23,7 +23,7 @@ function Header({ handlePageClick, totalPages }) {
         handlePageClick(newPage);
     };
 
-    //Tim kiem
+    //Search
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchresult] = useState([]);
     const [showResult, setShowResult] = useState(true); //true -> hien thi kq tim kiem
@@ -61,7 +61,7 @@ function Header({ handlePageClick, totalPages }) {
 
     return (
         <div className={cx('wrapper')}>
-            <Tippy
+            {/* <Tippy
                 interactive
                 visible={searchResult.length >= 1 && showResult}
                 placement="bottom"
@@ -78,22 +78,22 @@ function Header({ handlePageClick, totalPages }) {
                     </div>
                 )}
                 onClickOutside={handleHideResult}
-            >
-                <div className={cx('search')}>
-                    <h4 className={cx('search-title')}>SEARCH FOR NAME</h4>
-                    <div className={cx('search-input')}>
-                        <input
-                            type="text"
-                            value={searchValue}
-                            onChange={handleOnChange}
-                            onFocus={() => setShowResult(true)}
-                        />
-                        <button className={cx('search-btn')}>
-                            <SearchRoundedIcon className={cx('icon')} />
-                        </button>
-                    </div>
+            > */}
+            <div className={cx('search')}>
+                <h4 className={cx('search-title')}>SEARCH FOR NAME</h4>
+                <div className={cx('search-input')}>
+                    <input
+                        type="text"
+                        value={searchValue}
+                        onChange={handleOnChange}
+                        onFocus={() => setShowResult(true)}
+                    />
+                    <button className={cx('search-btn')}>
+                        <SearchRoundedIcon className={cx('icon')} />
+                    </button>
                 </div>
-            </Tippy>
+            </div>
+            {/* </Tippy> */}
 
             <div className={cx('middle')}>
                 <span className={cx('left')}>
@@ -122,6 +122,7 @@ function Header({ handlePageClick, totalPages }) {
                         }
                     />
                 </button>
+
                 <div className={cx('number-page')}>{page}</div>
                 <button
                     className={cx('arrow-btn')}

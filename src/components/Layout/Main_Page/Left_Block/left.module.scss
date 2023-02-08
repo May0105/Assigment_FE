@@ -1,6 +1,5 @@
 .wrapper {
     color: #000;
-    max-width: var(--left-block-width);
     margin-right: 64px; //kc voi khoi giua
 }
 
@@ -33,5 +32,6 @@
         margin-left: 16px;
     }
 }
-.checkbox {
+
+@media (max-width: 768px) {
 }

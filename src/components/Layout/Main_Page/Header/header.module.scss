@@ -98,13 +98,10 @@
     margin-left: 8px;
     background-color: var(--blue-color);
     color: var(--white);
-    // width: 120px;
     height: 34px;
     padding: 6px 0;
 
     .icon {
-        // padding: 9px;
-
         color: var(--white);
         font-size: 1.8rem;
         padding: 4px 8px;
@@ -141,10 +138,6 @@
     font-size: 1.4rem;
     background-color: #e7662a;
     color: var(--white);
-
-    &:hover {
-        // background-color: rgba(0, 0, 0, 0.2);
-    }
 }
 
 .active {
@@ -168,4 +161,26 @@
 .disable {
     cursor: default;
     color: rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        display: block;
+        position: relative;
+    }
+
+    .search {
+        .search-input {
+            width: 100%;
+        }
+    }
+    .middle {
+        width: 50%;
+        justify-content: space-between;
+    }
+    .page {
+        position: absolute;
+        top: 50%;
+        right: 0;
+    }
 }
